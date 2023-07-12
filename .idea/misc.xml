@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/skbChat/app/src/main/res/drawable/backspace.xml" value="0.168" />
+        <entry key="..\:/skbChat/app/src/main/res/drawable/edttext.xml" value="0.1" />
+        <entry key="..\:/skbChat/app/src/main/res/drawable/edtxt_shap.xml" value="0.168" />
+        <entry key="..\:/skbChat/app/src/main/res/drawable/equals.xml" value="0.168" />
+        <entry key="..\:/skbChat/app/src/main/res/drawable/number_btn.xml" value="0.168" />
+        <entry key="..\:/skbChat/app/src/main/res/drawable/open_close_parenthesis.xml" value="0.168" />
+        <entry key="..\:/skbChat/app/src/main/res/layout/activity_calci.xml" value="0.12" />
+        <entry key="..\:/skbChat/app/src/main/res/layout/activity_homelogin.xml" value="0.18" />
+        <entry key="..\:/skbChat/app/src/main/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/skbChat/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/skbChat/app/src/main/res/layout/activity_resistration.xml" value="0.1859375" />
+        <entry key="..\:/skbChat/app/src/main/res/layout/homescreen.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

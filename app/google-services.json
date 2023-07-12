@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "761768712402",
+    "firebase_url": "https://skbchat-a31e0-default-rtdb.firebaseio.com",
+    "project_id": "skbchat-a31e0",
+    "storage_bucket": "skbchat-a31e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761768712402:android:f242b6a2a4151f5c8af50b",
+        "android_client_info": {
+          "package_name": "com.rianomusicskb.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761768712402-ao13nk5fkomd3lp893717m4s0ks11cuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7CWzBBgm0mPntQyCLuAtqPhTk-1-Nqeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761768712402-ao13nk5fkomd3lp893717m4s0ks11cuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761768712402:android:844297f4e06daa9d8af50b",
+        "android_client_info": {
+          "package_name": "com.rianomusicskb.skbchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761768712402-ao13nk5fkomd3lp893717m4s0ks11cuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7CWzBBgm0mPntQyCLuAtqPhTk-1-Nqeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761768712402-ao13nk5fkomd3lp893717m4s0ks11cuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
