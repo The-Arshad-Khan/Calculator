@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">skbChat</string>
+    <string name="Welcome_Back">Welcome Back</string>
+    <string name="Welcome_chatting">Welcome to Chatting App</string>
+    <string name="enter_username">Enter UserName</string>
+    <string name="enter_password">Enter PassWord</string>
+
+
+</resources>
