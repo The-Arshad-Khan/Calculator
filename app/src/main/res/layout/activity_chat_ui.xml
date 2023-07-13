@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chatUI"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:gravity="">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/baseline_arrow_back_ios_24"></ImageView>
+
+        <TextView
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:text="Divyanshi Pal"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"></TextView>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:background="@color/white"
+            android:rotation="90"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:src="@drawable/baseline_more_horiz_24"></ImageButton>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="709dp"
+        android:background="@color/Grey"
+        ></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:padding="@dimen/_10sdp"
+        android:background="@color/white">
+        <EditText
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/backbutton"
+            android:hint="write your message here"
+            android:textSize="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            ></EditText>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/atcbtn"
+            ></ImageButton>
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/send_btn"
+            ></ImageButton>
+
+    </LinearLayout>
+
+
+</LinearLayout>

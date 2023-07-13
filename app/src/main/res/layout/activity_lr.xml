@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lr"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_140sdp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_120sdp"
+            android:src="@drawable/logo"></ImageView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_30sdp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:backgroundTint="@color/Blue"
+            android:text="Login"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:backgroundTint="@color/white"
+            android:text="Register"
+            android:textColor="@color/Blue"
+            app:strokeColor="#000000"
+            app:strokeWidth="@dimen/_1sdp"></Button>
+    </LinearLayout>
+
+</LinearLayout>
