@@ -17,15 +17,6 @@
             android:name=".calci_Activity"
             android:exported="false"/>
         <activity
-            android:name=".HomeScreen"
-            android:exported="false" />
-        <activity
-            android:name=".ResistrationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeLoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
         <intent-filter>

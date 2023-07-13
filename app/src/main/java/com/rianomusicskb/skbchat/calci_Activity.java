@@ -205,7 +205,7 @@ public class calci_Activity extends AppCompatActivity {
                 }else if(count==4) {
                     mValueOne = Float.parseFloat(crunchifyEditText.getText() + "");
                     if (var == mValueOne) {
-                        startActivity(new Intent(calci_Activity.this, HomeLoginActivity.class));
+                        startActivity(new Intent(calci_Activity.this, lr.class));
                         finish();
                     }
                 }else{

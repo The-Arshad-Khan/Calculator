@@ -4,6 +4,7 @@
     <string name="Welcome_chatting">Welcome to Chatting App</string>
     <string name="enter_username">Enter UserName</string>
     <string name="enter_password">Enter PassWord</string>
+    <string name="register">Register</string>
 
 
 </resources>
