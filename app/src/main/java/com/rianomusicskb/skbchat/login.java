@@ -42,7 +42,7 @@ public class login extends AppCompatActivity {
         database= FirebaseDatabase.getInstance();
 
         if(auth.getCurrentUser()!=null){
-            Intent intent = new Intent(login.this, lr.class);
+            Intent intent = new Intent(login.this, contacts.class);
             startActivity(intent);
             finish();
         }

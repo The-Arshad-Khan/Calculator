@@ -16,15 +16,33 @@
         <activity
             android:name=".calci_Activity"
             android:exported="false"/>
+        <activity android:name=".login"
+            android:exported="false"/>
+        <activity
+            android:name=".Registration"
+            android:exported="false"/>
+        <activity
+            android:name=".lr"
+            android:exported="false"/>
+
+
+        <activity
+            android:name=".chatUI"
+            android:exported="false"/>
+
+        <activity
+            android:name=".contacts"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
 
     </application>
 

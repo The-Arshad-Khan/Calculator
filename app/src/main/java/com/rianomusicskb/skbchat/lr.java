@@ -5,28 +5,41 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
-public class lr extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
-    EditText lr_login,lr_reg;
+public class lr extends AppCompatActivity {
+    FirebaseAuth auth;
+
+    Button lrlogin,lrreg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lr);
+        lrlogin=findViewById(R.id.lr_login);
+        lrreg=findViewById(R.id.lr_reg);
 
-        lr_login.findViewById(R.id.lr_login);
-        lr_reg.findViewById(R.id.lr_reg);
+        auth= FirebaseAuth.getInstance();
 
-        lr_login.setOnClickListener(new View.OnClickListener() {
+        if(auth.getCurrentUser()!=null){
+            Intent intent = new Intent(lr.this, contacts.class);
+            startActivity(intent);
+            finish();
+        }
+
+
+        lrlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(lr.this,login.class));
+
             }
         });
 
-        lr_reg.setOnClickListener(new View.OnClickListener() {
+        lrreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(lr.this,Registration.class));

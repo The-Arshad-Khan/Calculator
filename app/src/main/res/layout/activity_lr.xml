@@ -39,7 +39,8 @@
             android:text="Register"
             android:textColor="@color/Blue"
             app:strokeColor="#000000"
-            app:strokeWidth="@dimen/_1sdp"></Button>
+            app:strokeWidth="@dimen/_1sdp"
+            />
     </LinearLayout>
 
 </LinearLayout>
