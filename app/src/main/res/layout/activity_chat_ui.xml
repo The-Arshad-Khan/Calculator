@@ -20,6 +20,7 @@
             android:src="@drawable/baseline_arrow_back_ios_24"></ImageView>
 
         <TextView
+            android:id="@+id/reciver_username"
             android:layout_width="282dp"
             android:layout_height="wrap_content"
             android:padding="@dimen/_5sdp"
@@ -40,38 +41,51 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="709dp"
+        android:layout_height="wrap_content"
         android:background="@color/Grey"
-        ></LinearLayout>
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/msg_adepter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:padding="@dimen/_10sdp"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="bottom">
+
         <EditText
+            android:id="@+id/edtmassege"
+            android:layout_marginTop="@dimen/_3sdp"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_40sdp"
             android:background="@drawable/backbutton"
             android:hint="write your message here"
-            android:textSize="@dimen/_10sdp"
-            android:padding="@dimen/_5sdp"
-            ></EditText>
+            android:paddingLeft="@dimen/_20sdp"
+            android:textSize="@dimen/_10sdp"></EditText>
 
         <ImageButton
+            android:id="@+id/item"
+            android:layout_marginTop="@dimen/_50sdp"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_42sdp"
             android:background="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/atcbtn"
-            ></ImageButton>
+            android:src="@drawable/atcbtn"></ImageButton>
+
         <ImageButton
+            android:id="@+id/send_btn"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_43sdp"
             android:background="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/send_btn"
-            ></ImageButton>
+            android:src="@drawable/send_btn"></ImageButton>
 
     </LinearLayout>
 
