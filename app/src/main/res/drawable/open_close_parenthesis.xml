@@ -3,11 +3,13 @@
 <corners
     android:radius="@dimen/_25sdp">
 </corners>
-    <solid android:color="@color/light2_blue">
-
-    </solid>
+    <gradient
+        android:startColor="@color/Blue"
+        android:endColor="@color/light2_blue"
+        android:angle="90"></gradient>
     <stroke
-        android:color="@color/light_blue"
+        android:color="@color/light2_blue"
         android:width="@dimen/_1sdp">
+
     </stroke>
 </shape>

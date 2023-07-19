@@ -35,6 +35,7 @@ public class lr extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(lr.this,login.class));
+                finish();
 
             }
         });
@@ -43,6 +44,7 @@ public class lr extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(lr.this,Registration.class));
+                finish();
             }
         });
 

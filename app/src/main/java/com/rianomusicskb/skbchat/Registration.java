@@ -55,13 +55,13 @@ public class Registration extends AppCompatActivity {
                 String email = edtemail_reg.getText().toString();
                 String pass = edtpassword_reg.getText().toString();
                 String c_pass=edtc_password_reg.getText().toString();
-                if (email.isEmpty()) {
-                    edtemail_reg.setError("email dalo bhai");
+                if (username.isEmpty()) {
+                    edtemail_reg.setError("Required");
 
-                }else if (username.isEmpty()) {
-                    edtusername_reg.setError("username dalo bhai");
+                }else if (email.isEmpty()) {
+                    edtusername_reg.setError("Required");
                 } else if (pass.isEmpty()) {
-                    edtpassword_reg.setError("password dalo bhai");
+                    edtpassword_reg.setError("Enter password");
                 } else if(c_pass.isEmpty()){
                     edtc_password_reg.setError("please Enter confirm password");
                 }

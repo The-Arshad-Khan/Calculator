@@ -6,34 +6,38 @@
     tools:context=".calci_Activity"
     android:orientation="vertical"
     android:gravity="bottom"
-    android:background="@color/light_blue">
+    android:background="@color/Blue">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
         <TextView
-            android:id="@+id/edtprint"
+            android:id="@+id/outputedt"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_55sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_35sdp"
+            android:paddingRight="@dimen/_15sdp"
             android:textAlignment="viewEnd"
-            android:textSize="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_6sdp"/>
+
+        <EditText
+            android:id="@+id/inputtxt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/_22sdp"
             android:paddingRight="@dimen/_15sdp"
             android:textColor="@color/light_white"
             android:background="@drawable/edttext"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_6sdp"
             />
 
-        <EditText
-            android:id="@+id/edt1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:background="@drawable/edttext"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp"
-           android:paddingRight="@dimen/_15sdp"
-            android:textAlignment="viewEnd">
-
-        </EditText>
 
 
     </LinearLayout>
@@ -71,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-android:layout_marginBottom="@dimen/_40sdp"
+android:layout_marginBottom="@dimen/_10sdp"
         >
 
 
@@ -79,16 +83,16 @@ android:layout_marginBottom="@dimen/_40sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
            android:gravity="bottom"
-            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:orientation="vertical"
             android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/backclear"
-                android:layout_width="@dimen/_62sdp"
+                android:layout_width="@dimen/_58sdp"
                 android:layout_height="@dimen/_55sdp"
                 android:layout_margin="@dimen/_6sdp"
-                android:background="@drawable/edttext"
+                android:background="@drawable/equals"
                 android:src="@drawable/backspace"
                 >
 
@@ -150,7 +154,6 @@ android:layout_marginBottom="@dimen/_40sdp"
             android:layout_weight="1"
             android:gravity="bottom"
             android:orientation="vertical"
-            android:layout_marginLeft="@dimen/_5sdp"
 
             >
 
@@ -223,8 +226,7 @@ android:layout_marginBottom="@dimen/_40sdp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="bottom"
-            android:orientation="vertical"
-            android:layout_marginLeft="@dimen/_5sdp">
+            android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnmod"
@@ -295,7 +297,7 @@ android:layout_marginBottom="@dimen/_40sdp"
             android:layout_weight="1"
             android:gravity="bottom"
             android:orientation="vertical"
-            android:layout_marginLeft="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/divbtn"
@@ -303,7 +305,7 @@ android:layout_marginBottom="@dimen/_40sdp"
                 android:layout_height="@dimen/_55sdp"
                 android:layout_margin="@dimen/_6sdp"
                 android:background="@drawable/number_btn"
-                android:text="/"
+                android:text="÷"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp">
 
@@ -315,7 +317,7 @@ android:layout_marginBottom="@dimen/_40sdp"
                 android:layout_height="@dimen/_55sdp"
                 android:layout_margin="@dimen/_6sdp"
                 android:background="@drawable/number_btn"
-                android:text="*"
+                android:text="×"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp">
 
@@ -347,7 +349,7 @@ android:layout_marginBottom="@dimen/_40sdp"
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/equalbtn"
-                android:layout_width="@dimen/_62sdp"
+                android:layout_width="@dimen/_58sdp"
                 android:layout_height="@dimen/_55sdp"
                 android:layout_margin="@dimen/_6sdp"
                 android:background="@drawable/equals"
