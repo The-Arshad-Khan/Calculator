@@ -19,7 +19,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ktx.Firebase;
 
 public class login extends AppCompatActivity {
     FirebaseAuth auth;
@@ -99,4 +98,5 @@ public class login extends AppCompatActivity {
         });
 
     }
+
 }
