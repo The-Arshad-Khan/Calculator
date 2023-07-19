@@ -1,10 +1,8 @@
 package com.rianomusicskb.skbchat;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class chatUI extends AppCompatActivity {
 
