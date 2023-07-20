@@ -1,15 +1,14 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.activity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rianomusicskb.skbchat.Adeptar.MessageAdeptar;
+import com.rianomusicskb.skbchat.R;
+import com.rianomusicskb.skbchat.modelClass.Masseges;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,11 +34,12 @@ public class chatUI extends AppCompatActivity {
     TextView reciver_username;
     EditText edtMassage;
     ImageButton send_btn;
+
     String sender_room,reciever_room;
+    RecyclerView messageAdapter;
 
-    RecyclerView msg_adapter;
-
-    ArrayList<massageAdeptar> arrayList;
+    ArrayList<Masseges> massegesArrayList;
+    MessageAdeptar Adeptar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +50,22 @@ public class chatUI extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         reciever_username=getIntent().getStringExtra("username");
         reciever_uid=getIntent().getStringExtra("uid");
-        arrayList=new ArrayList<>();
+        massegesArrayList =new ArrayList<>();
         reciver_username=findViewById(R.id.reciver_username);
-        reciver_username.setText(""+reciever_username);
+        reciver_username.setText(" "+reciever_username);
         edtMassage=findViewById(R.id.edtmassege);
-        msg_adapter=findViewById(R.id.msg_adepter);
+        messageAdapter =findViewById(R.id.messaegesAdepter);
+        Adeptar =new MessageAdeptar(chatUI.this, massegesArrayList);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+
+        messageAdapter.setLayoutManager(linearLayoutManager);
+        messageAdapter.setAdapter(Adeptar);
+//        messageAdapter.setLayoutManager(linearLayoutManager);
+
+
+
+
         send_btn=findViewById(R.id.send_btn);
         sender_uid=auth.getUid();
 
@@ -63,10 +77,13 @@ public class chatUI extends AppCompatActivity {
         chatreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                massegesArrayList.clear();
+
                 for(DataSnapshot datasnapshot:snapshot.getChildren()){
-                    massageAdeptar massageAdeptar=datasnapshot.getValue(massageAdeptar.class);
-                    arrayList.add(massageAdeptar);
+                    Masseges massages=datasnapshot.getValue(Masseges.class);
+                    massegesArrayList.add(massages);
                 }
+                Adeptar.notifyDataSetChanged();
             }
 
             @Override
@@ -96,29 +113,38 @@ public class chatUI extends AppCompatActivity {
                 }
                 edtMassage.setText("");
                 Date date=new Date();
-                massageAdeptar massageAdeptar=new massageAdeptar(massage,sender_uid,date.getTime());
+               Masseges massages=new Masseges(massage,sender_uid,date.getTime());
                 database.getReference().child("chats")
                         .child(sender_room)
                         .child("massages")
                         .push()
-                        .setValue(massageAdeptar)
+                        .setValue(massages)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        database.getReference().child("chats")
-                                .child(reciever_room)
-                                .child("massages")
-                                .push().setValue(massageAdeptar).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                database.getReference().child("chats")
+                                        .child(reciever_room)
+                                        .child("massages")
+                                        .push().setValue(massages).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
 
-                                    }
-                                });
-                    }
-                });
+                                            }
+                                        });
+                            }
+                        });
 
             }
         });
     }
 
 }
+
+
+
+
+
+
+
+
+

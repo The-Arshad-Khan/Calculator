@@ -14,27 +14,27 @@
         android:theme="@style/Theme.SkbChat"
         tools:targetApi="31">
         <activity
-            android:name=".calci_Activity"
+            android:name=".activity.login$calci_Activity"
             android:exported="false"/>
-        <activity android:name=".login"
-            android:exported="false"/>
-        <activity
-            android:name=".Registration"
+        <activity android:name=".activity.login"
             android:exported="false"/>
         <activity
-            android:name=".lr"
+            android:name=".activity.Registration"
+            android:exported="false"/>
+        <activity
+            android:name=".activity.lr"
             android:exported="false"/>
 
 
         <activity
-            android:name=".chatUI"
+            android:name=".activity.chatUI"
             android:exported="false"/>
 
         <activity
-            android:name=".contacts"
+            android:name=".activity.contacts"
             android:exported="false"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

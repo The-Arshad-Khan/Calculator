@@ -1,8 +1,8 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.modelClass;
 
 public class UserModel {
 
-    String username;
+    public String username;
     String email;
     String c_pass;
     String uid;

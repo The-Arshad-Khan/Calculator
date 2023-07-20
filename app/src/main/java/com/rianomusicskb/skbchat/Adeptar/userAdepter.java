@@ -1,4 +1,4 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.Adeptar;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,10 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rianomusicskb.skbchat.R;
+import com.rianomusicskb.skbchat.activity.chatUI;
+import com.rianomusicskb.skbchat.activity.contacts;
+import com.rianomusicskb.skbchat.activity.login;
+import com.rianomusicskb.skbchat.modelClass.UserModel;
+
 import java.util.ArrayList;
 
 public class userAdepter extends RecyclerView.Adapter<userAdepter.viewHolder>{
-    contacts contacts;
+    com.rianomusicskb.skbchat.activity.contacts contacts;
     ArrayList<UserModel> usersArrayList;
     public userAdepter(contacts contacts, ArrayList<UserModel> usersArrayList) {
         this.contacts=contacts;

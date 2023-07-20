@@ -1,10 +1,12 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.rianomusicskb.skbchat.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(MainActivity.this, calci_Activity.class);
+                Intent i = new Intent(MainActivity.this, login.calci_Activity.class);
                 startActivity(i);
                 finish();
             }

@@ -1,4 +1,4 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rianomusicskb.skbchat.R;
+import com.rianomusicskb.skbchat.modelClass.UserModel;
+import com.rianomusicskb.skbchat.Adeptar.userAdepter;
 
 import java.util.ArrayList;
 

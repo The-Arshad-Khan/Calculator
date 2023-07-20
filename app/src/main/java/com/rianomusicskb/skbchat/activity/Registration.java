@@ -1,4 +1,4 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rianomusicskb.skbchat.R;
+import com.rianomusicskb.skbchat.modelClass.UserModel;
 
 public class Registration extends AppCompatActivity {
 

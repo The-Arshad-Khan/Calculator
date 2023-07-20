@@ -1,14 +1,14 @@
-package com.rianomusicskb.skbchat;
+package com.rianomusicskb.skbchat.modelClass;
 
-public class massageAdeptar {
+public class Masseges {
     String msg;
     String senderId;
     long timestamp;
 
-    public massageAdeptar() {
+    public Masseges() {
     }
 
-    public massageAdeptar(String msg, String senderId, long timestamp) {
+    public Masseges(String msg, String senderId, long timestamp) {
         this.msg = msg;
         this.senderId = senderId;
         this.timestamp = timestamp;

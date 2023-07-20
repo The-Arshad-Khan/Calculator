@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".calci_Activity"
+    tools:context=".activity.login$calci_Activity"
     android:orientation="vertical"
     android:gravity="bottom"
     android:background="@color/Blue">
