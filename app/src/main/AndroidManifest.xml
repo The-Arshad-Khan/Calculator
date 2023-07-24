@@ -15,24 +15,22 @@
         tools:targetApi="31">
         <activity
             android:name=".activity.login$calci_Activity"
-            android:exported="false"/>
-        <activity android:name=".activity.login"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".activity.login"
+            android:exported="false" />
         <activity
             android:name=".activity.Registration"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.lr"
-            android:exported="false"/>
-
-
+            android:exported="false" />
         <activity
             android:name=".activity.chatUI"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".activity.contacts"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
@@ -42,8 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

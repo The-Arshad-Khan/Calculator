@@ -52,6 +52,8 @@
             android:background="@drawable/backbutton"
             android:gravity="center"
             android:hint="Username"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="textPersonName"
             android:padding="@dimen/_5sdp"></EditText>
 
@@ -64,6 +66,8 @@
             android:background="@drawable/backbutton"
             android:gravity="center"
             android:hint="E-mail"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="textEmailAddress"
             android:padding="@dimen/_5sdp"></EditText>
 
@@ -76,6 +80,8 @@
             android:background="@drawable/backbutton"
             android:gravity="center"
             android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="textPassword"
             android:padding="@dimen/_5sdp"></EditText>
 
@@ -88,6 +94,8 @@
             android:background="@drawable/backbutton"
             android:gravity="center"
             android:hint="Confirm Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="textPassword"
             android:padding="@dimen/_5sdp"></EditText>
     </LinearLayout>
