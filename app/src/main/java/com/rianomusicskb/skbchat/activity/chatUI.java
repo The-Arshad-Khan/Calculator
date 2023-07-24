@@ -1,9 +1,11 @@
 package com.rianomusicskb.skbchat.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +37,7 @@ public class chatUI extends AppCompatActivity {
     EditText edtMassage;
     ImageButton send_btn;
 
+    ImageView backbutton;
     String sender_room,reciever_room;
     RecyclerView messageAdapter;
 
@@ -55,6 +58,7 @@ public class chatUI extends AppCompatActivity {
         reciver_username.setText(" "+reciever_username);
         edtMassage=findViewById(R.id.edtmassege);
         messageAdapter =findViewById(R.id.messaegesAdepter);
+        backbutton=findViewById(R.id.backbutton);
         Adeptar =new MessageAdeptar(chatUI.this, massegesArrayList);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
@@ -71,6 +75,16 @@ public class chatUI extends AppCompatActivity {
 
         sender_room=sender_uid+reciever_uid;
         reciever_room=reciever_uid+sender_uid;
+
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(chatUI.this,contacts.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         DatabaseReference chatreference=database.getReference().child("chats").child(sender_room).child("massages");
 

@@ -58,10 +58,10 @@ public class Registration extends AppCompatActivity {
                 String pass = edtpassword_reg.getText().toString();
                 String c_pass=edtc_password_reg.getText().toString();
                 if (username.isEmpty()) {
-                    edtemail_reg.setError("Required");
+                    edtusername_reg.setError("Required");
 
                 }else if (email.isEmpty()) {
-                    edtusername_reg.setError("Required");
+                    edtemail_reg.setError("Required");
                 } else if (pass.isEmpty()) {
                     edtpassword_reg.setError("Enter password");
                 } else if(c_pass.isEmpty()){
