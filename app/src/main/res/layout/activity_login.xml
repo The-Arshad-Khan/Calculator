@@ -53,6 +53,8 @@
             android:background="@drawable/backbutton"
             android:gravity="center"
             android:hint="Username, Email"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="textPersonName"
             android:padding="@dimen/_5sdp"></EditText>
 
@@ -67,6 +69,8 @@
             android:background="@drawable/backbutton"
             android:gravity="center"
             android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:inputType="textPassword"
             android:padding="@dimen/_5sdp"></EditText>
 
