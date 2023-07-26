@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.login"
-    android:background="@color/white"
+    android:background="@color/orange"
     android:orientation="vertical"
     android:padding="@dimen/_22sdp">
 
@@ -18,7 +18,7 @@
             android:id="@+id/backbtn"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
-            android:background="@color/white"
+            android:background="@color/orange"
             android:contentDescription="back button"
             android:src="@drawable/baseline_arrow_back_ios_24"></ImageButton>
     </LinearLayout>
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="Welcome Back!"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/_35sdp"
             android:textStyle="bold"
             android:typeface="sans"></TextView>
@@ -50,7 +50,7 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:background="@drawable/backbutton"
+            android:background="@drawable/inputbox"
             android:gravity="center"
             android:hint="Username, Email"
             android:textColorHint="@color/black"
@@ -66,7 +66,7 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:background="@drawable/backbutton"
+            android:background="@drawable/inputbox"
             android:gravity="center"
             android:hint="Password"
             android:textColorHint="@color/black"
@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:backgroundTint="@color/Blue"
+        android:backgroundTint="@color/black"
         android:text="Login"></Button>
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Create an account?"
+            android:text="Don,t have an account?"
+            android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"></TextView>
 
         <TextView
@@ -102,7 +103,7 @@
             android:gravity="center"
             android:text="Register Now"
             android:textSize="@dimen/_15sdp"
-            android:textColor="@color/Blue"
+            android:textColor="@color/black"
             android:layout_marginLeft="@dimen/_5sdp"
             android:textStyle="bold">
         </TextView>
