@@ -5,9 +5,9 @@
         android:bottomRightRadius="@dimen/_5sdp"
         android:topRightRadius="@dimen/_5sdp"
         />
-    <gradient android:startColor="@color/Blue"
-        android:endColor="@color/Blue2"
-        android:angle="180">
+    <gradient android:startColor="@color/black"
+        android:endColor="@color/dark_gray"
+        android:angle="90">>
 
     </gradient>
 </shape>

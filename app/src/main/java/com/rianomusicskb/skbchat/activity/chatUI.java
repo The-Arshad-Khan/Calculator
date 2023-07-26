@@ -65,6 +65,7 @@ public class chatUI extends AppCompatActivity {
 
         messageAdapter.setLayoutManager(linearLayoutManager);
         messageAdapter.setAdapter(Adeptar);
+
 //        messageAdapter.setLayoutManager(linearLayoutManager);
 
 
