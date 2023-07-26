@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.chatUI"
     android:orientation="vertical"
-    android:background="@color/dark_gray">
+    android:background="@color/orange">
 
     <RelativeLayout
         android:id="@+id/uperlayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
-        android:background="@color/black"
-        android:padding="@dimen/_10sdp">
+        android:background="@color/orange"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp">
 
         <ImageView
             android:id="@+id/backbutton"
@@ -48,7 +49,13 @@
     </RelativeLayout>
 
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/contactsbg"
+    android:layout_below="@id/uperlayout"
+    android:layout_above="@id/msg"
+    android:paddingTop="@dimen/_20sdp">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messaegesAdepter"
         android:layout_width="match_parent"
@@ -59,14 +66,16 @@
         android:layout_above="@+id/msg">
 
     </androidx.recyclerview.widget.RecyclerView>
-
+</LinearLayout>
     <RelativeLayout
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@color/black">
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="@color/light_black"
+        >
 
         <EditText
             android:id="@+id/edtmassege"
@@ -75,31 +84,38 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
 
-            android:background="@drawable/backbutton"
+            android:background="@drawable/attach_mssg"
             android:hint="write your message here..."
             android:paddingLeft="@dimen/_25sdp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/Grey"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="@dimen/_10sdp"></EditText>
 
         <ImageButton
             android:id="@+id/item"
-            android:layout_width="50dp"
-            android:layout_height="@dimen/_42sdp"
+            android:layout_width="40dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_3sdp"
             android:layout_toLeftOf="@id/send_btn"
-            android:background="@color/white"
+            android:background="@color/light_black"
             android:scaleType="fitCenter"
-            android:src="@drawable/atcbtn"></ImageButton>
+            android:layout_marginRight="@dimen/_10sdp"
+            android:src="@drawable/camera_icon"></ImageButton>
 
         <ImageButton
             android:id="@+id/send_btn"
-            android:layout_width="50dp"
-            android:layout_height="@dimen/_43sdp"
+            android:layout_width="40dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_3sdp"
             android:layout_alignParentRight="true"
-            android:background="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/send_btn"></ImageButton>
+            android:background="@color/light_black"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:src="@drawable/sendbutton"></ImageButton>
 
     </RelativeLayout>
 
