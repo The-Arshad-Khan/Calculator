@@ -5,8 +5,8 @@
         <shape
             android:shape="rectangle">
             <gradient
-                android:startColor="@color/Blue2"
-                android:endColor="@color/light_blue"
+                android:startColor="@color/black"
+                android:endColor="@color/dark_gray"
                 android:angle="90">
 
             </gradient>
@@ -15,8 +15,8 @@
 
             </corners>
             <stroke
-                android:color="@color/light_blue"
-                android:width="@dimen/_2sdp">
+                android:color="@color/dark_gray"
+                android:width="@dimen/_1sdp">
             </stroke>
         </shape>
 
