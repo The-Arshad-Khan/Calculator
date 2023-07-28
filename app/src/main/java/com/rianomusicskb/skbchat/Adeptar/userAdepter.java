@@ -14,8 +14,11 @@ import com.rianomusicskb.skbchat.activity.chatUI;
 import com.rianomusicskb.skbchat.activity.contacts;
 import com.rianomusicskb.skbchat.activity.login;
 import com.rianomusicskb.skbchat.modelClass.UserModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class userAdepter extends RecyclerView.Adapter<userAdepter.viewHolder>{
     com.rianomusicskb.skbchat.activity.contacts contacts;
@@ -37,6 +40,7 @@ public class userAdepter extends RecyclerView.Adapter<userAdepter.viewHolder>{
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
        UserModel userModel = usersArrayList.get(position);
         holder.user_name.setText(userModel.username);
+        Picasso.get().load(userModel.getImageUri()).into(holder.user_profile);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,8 +59,11 @@ public class userAdepter extends RecyclerView.Adapter<userAdepter.viewHolder>{
     }
     class viewHolder extends RecyclerView.ViewHolder{
         TextView user_name;
+        CircleImageView user_profile;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
+
+            user_profile=itemView.findViewById(R.id.profile_image);
             user_name=itemView.findViewById(R.id.chat_username);
         }
     }

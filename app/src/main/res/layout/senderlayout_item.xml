@@ -16,7 +16,7 @@
         android:layout_marginRight="@dimen/_9sdp"
         android:layout_marginBottom="@dimen/_3sdp"
         android:background="@drawable/sendershape"
-        android:padding="@dimen/_7sdp"
+        android:padding="@dimen/_8sdp"
         android:text="@string/enter_username"
         android:textColor="@color/white"></TextView>
 
