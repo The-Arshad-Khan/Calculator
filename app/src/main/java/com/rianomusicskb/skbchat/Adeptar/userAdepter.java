@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.rianomusicskb.skbchat.R;
 import com.rianomusicskb.skbchat.activity.chatUI;
 import com.rianomusicskb.skbchat.activity.contacts;
-import com.rianomusicskb.skbchat.activity.login;
 import com.rianomusicskb.skbchat.modelClass.UserModel;
 import com.squareup.picasso.Picasso;
 
@@ -21,10 +20,10 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class userAdepter extends RecyclerView.Adapter<userAdepter.viewHolder>{
-    com.rianomusicskb.skbchat.activity.contacts contacts;
+    contacts contacts;
     ArrayList<UserModel> usersArrayList;
-    public userAdepter(contacts contacts, ArrayList<UserModel> usersArrayList) {
-        this.contacts=contacts;
+    public userAdepter(com.rianomusicskb.skbchat.activity.contacts contacts, ArrayList<UserModel> usersArrayList) {
+        this.contacts =contacts;
         this.usersArrayList=usersArrayList;
     }
 

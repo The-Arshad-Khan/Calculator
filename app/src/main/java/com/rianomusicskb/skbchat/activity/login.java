@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,20 +41,26 @@ import java.util.Date;
 public class login extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
+    ImageButton backbtn_login;
     EditText edtemail, edtpassword, edtusername;
     Button loginbutton;
     TextView txtregiternow;
+    ProgressDialog progressDialog;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("ruk ja bhaii");
+        progressDialog.setCancelable(false);
         edtemail = findViewById(R.id.edtemail);
         edtusername = findViewById(R.id.edtemail);
         edtpassword = findViewById(R.id.edtpasswordlogin);
         loginbutton = findViewById(R.id.loginbtn);
         txtregiternow = findViewById(R.id.txtregisternow);
+        backbtn_login=findViewById(R.id.backbtn_login);
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
@@ -67,25 +75,38 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(login.this, Registration.class);
                 startActivity(intent);
+                finish();
             }
         });
 
+        backbtn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(login.this,lr.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog.dismiss();
                 String username = edtusername.getText().toString();
                 String password = edtpassword.getText().toString();
                 String email = edtemail.getText().toString();
                 if (isEmpty(username)) {
+                    progressDialog.dismiss();
                     edtusername.setError("Enter the Email or Username");
                     Toast.makeText(login.this, "Please Enter Email or Username", Toast.LENGTH_SHORT).show();
 
                 } else if (email.isEmpty()) {
+                    progressDialog.dismiss();
                     edtemail.setError("Enter the Email or Username");
                     Toast.makeText(login.this, "Please Enter Email or Username", Toast.LENGTH_SHORT).show();
 
                 } else if (isEmpty(password)) {
+                    progressDialog.dismiss();
                     edtpassword.setError("Enter the password");
                     Toast.makeText(login.this, "Please Enter password", Toast.LENGTH_SHORT).show();
 
@@ -95,12 +116,14 @@ public class login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                progressDialog.dismiss();
                                 Toast.makeText(login.this, "Succesfully login", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(login.this, contacts.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();
                             } else {
+                                progressDialog.dismiss();
                                 Toast.makeText(login.this, "login failed", Toast.LENGTH_SHORT).show();
                             }
                         }

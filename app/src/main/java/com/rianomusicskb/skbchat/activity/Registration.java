@@ -18,6 +18,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ import com.rianomusicskb.skbchat.modelClass.UserModel;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -51,16 +53,22 @@ public class Registration extends AppCompatActivity {
     EditText edtemail_reg,edtpassword_reg,edtc_password_reg,edtusername_reg;
     Button register_button;
     TextView txtloginnow;
+    ImageButton backbtn_reg;
     CircleImageView profile_image;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     Uri image_uri;
     String  imageUri;
+    ProgressDialog progressDialog;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("ruk ja bhaii");
+        progressDialog.setCancelable(false);
         edtusername_reg=findViewById(R.id.edtusername_reg);
         edtemail_reg=findViewById(R.id.edtemail_reg);
         edtpassword_reg=findViewById(R.id.edtpassword_reg);
@@ -68,10 +76,20 @@ public class Registration extends AppCompatActivity {
         register_button=findViewById(R.id.registerbtn);
         txtloginnow=findViewById(R.id.txtloginnow);
         profile_image=findViewById(R.id.profile_image);
+        backbtn_reg=findViewById(R.id.backbtn_reg);
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         storage=FirebaseStorage.getInstance();
 
+
+        backbtn_reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Registration.this,lr.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         txtloginnow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +105,7 @@ public class Registration extends AppCompatActivity {
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 String username = edtusername_reg.getText().toString();
                 String email = edtemail_reg.getText().toString();
                 String pass = edtpassword_reg.getText().toString();
@@ -94,25 +113,38 @@ public class Registration extends AppCompatActivity {
 
                 if (username.isEmpty()) {
                     edtusername_reg.setError("Required");
+                    progressDialog.dismiss();
 
                 }else if (email.isEmpty()) {
                     edtemail_reg.setError("Required");
+                    progressDialog.dismiss();
+
 
                 } else if(!email.matches(emailPattern)){
                     edtemail_reg.setError("Invalid email");
+                    progressDialog.dismiss();
+
                     Toast.makeText(Registration.this, "Please Enter Valid Email", Toast.LENGTH_SHORT).show();
 
                 }
                 else if (pass.isEmpty()) {
                     edtpassword_reg.setError("Enter password");
+                    progressDialog.dismiss();
+
                 }else if(!isValidPassword(pass.trim())){
                     edtpassword_reg.setError("Week Password");
+                    progressDialog.dismiss();
+
                     Toast.makeText(Registration.this, "Please Enter Valid Password", Toast.LENGTH_SHORT).show();
 
                 } else if(c_pass.isEmpty()){
+                    progressDialog.dismiss();
+
                     edtc_password_reg.setError("please Enter confirm password");
                 }
                 else if(!pass.equals(c_pass)){
+                    progressDialog.dismiss();
+
                     edtc_password_reg.setError("password does'nt match");
 
                 }else{
@@ -121,6 +153,8 @@ public class Registration extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                progressDialog.dismiss();
+
                                 DatabaseReference reference = database.getReference().child("user").child(auth.getUid());
                                 StorageReference storageReference= storage.getReference().child("upload").child(auth.getUid());
 
@@ -129,21 +163,27 @@ public class Registration extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                                             if(task.isSuccessful()){
+                                                progressDialog.dismiss();
+
                                                 storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                     @Override
                                                     public void onSuccess(Uri uri) {
                                                         imageUri=uri.toString();
-                                                        UserModel data = new UserModel(auth.getUid(), email, username,c_pass,imageUri);
+                                                        UserModel data = new UserModel(auth.getUid(), email, username,c_pass,imageUri,username.toLowerCase());
                                                         reference.setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             @Override
                                                             public void onComplete(@NonNull Task<Void> task) {
 
                                                                 if (task.isSuccessful()) {
+                                                                    progressDialog.dismiss();
+
                                                                     Toast.makeText(Registration.this, "Succesfully Register", Toast.LENGTH_SHORT).show();
                                                                     Intent intent = new Intent(Registration.this, contacts.class);
                                                                     startActivity(intent);
                                                                     finish();
                                                                 } else {
+                                                                    progressDialog.dismiss();
+
                                                                     Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
                                                                 }
 
@@ -159,17 +199,21 @@ public class Registration extends AppCompatActivity {
 
                                     imageUri="https://firebasestorage.googleapis.com/v0/b/skbchat-a31e0.appspot.com/o/user%20(1).png?alt=media&token=c934df53-868f-46e7-8292-9535b32aa2f3";
 
-                                    UserModel data = new UserModel(auth.getUid(), email, username,c_pass,imageUri);
+                                    UserModel data = new UserModel(auth.getUid(), email, username,c_pass,imageUri,username.toLowerCase());
                                     reference.setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
 
                                             if (task.isSuccessful()) {
+                                                progressDialog.dismiss();
+
                                                 Toast.makeText(Registration.this, "Succesfully Register", Toast.LENGTH_SHORT).show();
                                                 Intent intent = new Intent(Registration.this, contacts.class);
                                                 startActivity(intent);
                                                 finish();
                                             } else {
+                                                progressDialog.dismiss();
+
                                                 Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
                                             }
 
@@ -180,6 +224,8 @@ public class Registration extends AppCompatActivity {
 
                             }
                             else{
+                                progressDialog.dismiss();
+
                                 Toast.makeText(Registration.this, "Something went Wrong ", Toast.LENGTH_SHORT).show();
                             }
                         }

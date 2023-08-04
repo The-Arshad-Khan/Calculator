@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_170sdp"
+    android:layout_margin="@dimen/_29sdp"
+    android:background="@drawable/shap_dialog"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/power_button">
+
+    </ImageView>
+
+    <TextView
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/Grey"
+        android:textSize="@dimen/_15sdp"
+        android:text="sacchi me logout karega">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/no"
+            android:background="@drawable/yes_logout_shape"
+            android:backgroundTint="@color/dark_gray"
+            android:textColor="@color/Grey"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_25sdp"
+            android:text="No"
+            android:gravity="center"
+            android:textSize="@dimen/_15sdp"
+            android:layout_margin="@dimen/_15sdp"></TextView>
+
+        <TextView
+            android:background="@drawable/yes_logout_shape"
+            android:id="@+id/yes"
+            android:backgroundTint="@color/orange"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_25sdp"
+            android:text="Yes"
+            android:textSize="@dimen/_16sdp"
+            android:layout_margin="@dimen/_15sdp"></TextView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -6,17 +6,19 @@ public class UserModel {
     String email;
     String c_pass;
     String uid;
+    String search;
     public String imageUri;
     public UserModel() {
     }
 
 
-    public UserModel(String uid,String email,String username,String c_pass,String imageUri) {
+    public UserModel(String uid,String email,String username,String c_pass,String imageUri,String search) {
         this.uid=uid;
         this.email = email;
         this.username=username;
         this.c_pass=c_pass;
         this.imageUri=imageUri;
+        this.search=search;
     }
 
 
@@ -59,5 +61,13 @@ public class UserModel {
 
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }
