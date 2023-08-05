@@ -1,9 +1,11 @@
 package com.rianomusicskb.skbchat.Adeptar;
 
 import android.content.Context;
+import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,12 +42,18 @@ public class MessageAdeptar extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
         Masseges masseges=massegesArrayList.get(position);
         if(holder.getClass()==SenderViewHolder.class){
+
             SenderViewHolder viewHolder=(SenderViewHolder) holder;
+
             viewHolder.txtmassages.setText(masseges.getMsg());
+
         }else {
             ReciverViewHolder viewHolder=(ReciverViewHolder)holder;
+
+           // viewHolder.send_image.setVisibility(View.GONE);
             viewHolder.txtmassages.setText(masseges.getMsg());
         }
     }
@@ -67,14 +75,17 @@ public class MessageAdeptar extends RecyclerView.Adapter {
 
     class SenderViewHolder extends RecyclerView.ViewHolder{
         TextView txtmassages;
+        ImageView send_image;
 
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
             txtmassages=itemView.findViewById(R.id.txtmassages);
+
         }
     }
     class ReciverViewHolder extends RecyclerView.ViewHolder{
         TextView txtmassages;
+        ImageView send_image;
 
         public ReciverViewHolder(@NonNull View itemView) {
             super(itemView);

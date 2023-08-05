@@ -82,6 +82,7 @@ public class login extends AppCompatActivity {
         backbtn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent=new Intent(login.this,lr.class);
                 startActivity(intent);
                 finish();
@@ -91,7 +92,7 @@ public class login extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog.dismiss();
+                progressDialog.show();
                 String username = edtusername.getText().toString();
                 String password = edtpassword.getText().toString();
                 String email = edtemail.getText().toString();

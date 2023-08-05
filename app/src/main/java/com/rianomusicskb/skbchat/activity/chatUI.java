@@ -95,9 +95,10 @@ public class chatUI extends AppCompatActivity {
         reciver_username=findViewById(R.id.reciver_username);
         reciver_username.setText(" "+reciever_username);
         edtMassage=findViewById(R.id.edtmassege);
-        messageAdapter =findViewById(R.id.messaegesAdepter);
+
         backbutton=findViewById(R.id.backbutton);
         Adeptar =new MessageAdeptar(chatUI.this, massegesArrayList);
+        messageAdapter =findViewById(R.id.messaegesAdepter);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         messageAdapter.setLayoutManager(linearLayoutManager);
@@ -139,40 +140,6 @@ public class chatUI extends AppCompatActivity {
         });
 
 
-
-//        send_image.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                CharSequence option[]=new CharSequence[]{
-//                        "image","PDF files",
-//                        "MS Word files"
-//
-//                };
-//                AlertDialog.Builder builder=new AlertDialog.Builder(chatUI.this);
-//                builder.setTitle("select files");
-//                builder.setItems(option, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int i) {
-//                        if(i==0){
-//
-//                            checker="image";
-//                            Intent intent=new Intent();
-//                            intent.setAction(Intent.ACTION_GET_CONTENT);
-//                            intent.setType("image/*");
-//                            startActivityForResult(intent.createChooser(intent,"Select Image"),438);
-//                        }
-//                        if(i==1){
-//                            checker="pdf";
-//
-//                        }
-//                        if(i==2){
-//                            checker="docs";
-//                        }
-//                    }
-//                });
-//            }
-//        });
-
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -192,6 +159,8 @@ public class chatUI extends AppCompatActivity {
                     massegesArrayList.add(massages);
                 }
                 Adeptar.notifyDataSetChanged();
+                messageAdapter.smoothScrollToPosition(messageAdapter.getAdapter().getItemCount());
+
             }
 
             @Override
@@ -204,17 +173,15 @@ public class chatUI extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                progressDialog.show();
                 StorageReference storageReference= storage.getReference().child("upload1").child(auth.getUid());
                 DatabaseReference imageref=database.getReference().child("images").child(sender_room).child("image");
 
                 if(image_uri!=null){
-                    Toast.makeText(chatUI.this, "yess", Toast.LENGTH_SHORT).show();
-
                     storageReference.putFile(image_uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(chatUI.this, "haa", Toast.LENGTH_SHORT).show();
                                 storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
@@ -226,6 +193,7 @@ public class chatUI extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
                                                     image_uri=null;
+                                                    progressDialog.dismiss();
 
                                                     Toast.makeText(chatUI.this, "sahi hai", Toast.LENGTH_SHORT).show();
                                                 }else {
@@ -248,9 +216,11 @@ public class chatUI extends AppCompatActivity {
                         }
                     });
                 }else {
+                    progressDialog.dismiss();
 
                     String massage=edtMassage.getText().toString();
                     if(massage.isEmpty()){
+                        progressDialog.dismiss();
                         return;
                     }
                     edtMassage.setText("");
@@ -270,6 +240,7 @@ public class chatUI extends AppCompatActivity {
                                             .push().setValue(massages).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
+                                                    progressDialog.dismiss();
 
                                                 }
                                             });
@@ -282,69 +253,6 @@ public class chatUI extends AppCompatActivity {
         });
     }
 
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if(requestCode==438 && resultCode==RESULT_OK && data!=null &&data.getData()!=null){
-//                fileuri=data.getData();
-//                if(!checker.equals("image")){
-//
-//                }else if(checker.equals("image")){
-//
-//                    StorageReference storageReference= FirebaseStorage.getInstance().getReference().child("Image Files");
-//                    String messagepushId=database.getReference().getKey();
-//
-//                    StorageReference filePath=storageReference.child(messagepushId+"."+"jpg");
-//                    UploadTask=filePath.putFile(fileuri);
-//                    UploadTask.continueWithTask(new Continuation() {
-//                        @Override
-//                        public Object then(@NonNull Task task) throws Exception {
-//                            if(!task.isSuccessful()){
-//                                throw task.getException();
-//                            }
-//                            return filePath.getDownloadUrl();
-//                        }
-//                    }).addOnCompleteListener(new OnCompleteListener<Uri>(){
-//                        @Override
-//                        public void onComplete(@NonNull Task<Uri>task) {
-//                            if(task.isSuccessful()){
-//                                Uri downloadUri=task.getResult();
-//                                myUrl=downloadUri.toString();
-//                                Date date=new Date();
-//                                Masseges massages=new Masseges(myUrl,sender_uid,date.getTime());
-//                                database.getReference().child("chats")
-//                                        .child(sender_room)
-//                                        .child("massages")
-//                                        .push()
-//                                        .setValue(massages)
-//                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                            @Override
-//                                            public void onComplete(@NonNull Task<Void> task) {
-//                                                database.getReference().child("chats")
-//                                                        .child(reciever_room)
-//                                                        .child("massages")
-//                                                        .push().setValue(massages).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                            @Override
-//                                                            public void onComplete(@NonNull Task<Void> task) {
-//
-//                                                            }
-//                                                        });
-//                                            }
-//                                        });
-//
-//                            }
-//                        }
-//                    });
-//
-//
-//                }
-//                else{
-//                    Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
-//                }
-//        }
-//    }
 
 }
 
