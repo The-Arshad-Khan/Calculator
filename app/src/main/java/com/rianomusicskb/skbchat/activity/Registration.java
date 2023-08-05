@@ -152,7 +152,7 @@ public class Registration extends AppCompatActivity {
                     auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
+                            if(task.isSuccessful()) {
                                 progressDialog.dismiss();
 
                                 DatabaseReference reference = database.getReference().child("user").child(auth.getUid());

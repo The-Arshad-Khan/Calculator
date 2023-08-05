@@ -93,16 +93,29 @@
             android:textColorHint="@color/black"
             android:textSize="@dimen/_10sdp"></EditText>
 
-        <ImageButton
-            android:id="@+id/item"
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/send_image"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="@dimen/_40sdp"-->
+<!--            android:src="@drawable/camera_icon"-->
+<!--            android:layout_marginTop="@dimen/_3sdp"-->
+<!--            android:layout_marginRight="@dimen/_10sdp"-->
+<!--            android:layout_marginBottom="@dimen/_3sdp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:background="@color/light_black"-->
+<!--            android:layout_toLeftOf="@id/send_btn"/>-->
+
+
+                <ImageButton
+            android:id="@+id/send_image"
             android:layout_width="40dp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/_3sdp"
             android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:layout_toLeftOf="@id/send_btn"
             android:background="@color/light_black"
             android:scaleType="fitCenter"
-            android:layout_marginRight="@dimen/_10sdp"
             android:src="@drawable/camera_icon"></ImageButton>
 
         <ImageButton
