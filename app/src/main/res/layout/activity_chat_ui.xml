@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.chatUI"
+    android:background="@color/orange"
     android:orientation="vertical"
-    android:background="@color/orange">
+    tools:context=".activity.chatUI">
 
     <RelativeLayout
         android:id="@+id/uperlayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:background="@color/orange"
-        android:padding="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp">
+        android:padding="@dimen/_10sdp">
 
         <ImageView
             android:id="@+id/backbutton"
@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_30sdp"
-            android:gravity="center"
             android:layout_toRightOf="@id/backbutton"
+            android:gravity="center"
             android:text="Username"
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp"
@@ -49,33 +49,34 @@
     </RelativeLayout>
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/contactsbg"
-    android:layout_below="@id/uperlayout"
-    android:layout_above="@id/msg"
-    android:paddingTop="@dimen/_20sdp">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messaegesAdepter"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/msg"
         android:layout_below="@id/uperlayout"
+        android:background="@drawable/contactsbg"
+        android:paddingTop="@dimen/_20sdp">
 
-        android:paddingHorizontal="@dimen/_5sdp"
-        android:layout_above="@+id/msg">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messaegesAdepter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/msg"
 
-    </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+            android:layout_below="@id/uperlayout"
+            android:paddingHorizontal="@dimen/_5sdp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:paddingBottom="@dimen/_10sdp"
-        android:paddingTop="@dimen/_10sdp"
         android:background="@color/light_black"
-        >
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp">
 
         <EditText
             android:id="@+id/edtmassege"
@@ -93,20 +94,20 @@
             android:textColorHint="@color/black"
             android:textSize="@dimen/_10sdp"></EditText>
 
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
-<!--            android:id="@+id/send_image"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="@dimen/_40sdp"-->
-<!--            android:src="@drawable/camera_icon"-->
-<!--            android:layout_marginTop="@dimen/_3sdp"-->
-<!--            android:layout_marginRight="@dimen/_10sdp"-->
-<!--            android:layout_marginBottom="@dimen/_3sdp"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            android:background="@color/light_black"-->
-<!--            android:layout_toLeftOf="@id/send_btn"/>-->
+        <!--        <de.hdodenhof.circleimageview.CircleImageView-->
+        <!--            android:id="@+id/send_image"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="@dimen/_40sdp"-->
+        <!--            android:src="@drawable/camera_icon"-->
+        <!--            android:layout_marginTop="@dimen/_3sdp"-->
+        <!--            android:layout_marginRight="@dimen/_10sdp"-->
+        <!--            android:layout_marginBottom="@dimen/_3sdp"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:background="@color/light_black"-->
+        <!--            android:layout_toLeftOf="@id/send_btn"/>-->
 
 
-                <ImageButton
+        <ImageButton
             android:id="@+id/send_image"
             android:layout_width="40dp"
             android:layout_height="@dimen/_40sdp"
@@ -122,12 +123,12 @@
             android:id="@+id/send_btn"
             android:layout_width="40dp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/_3sdp"
-            android:layout_marginTop="@dimen/_3sdp"
             android:layout_alignParentRight="true"
-            android:scaleType="fitCenter"
-            android:background="@color/light_black"
+            android:layout_marginTop="@dimen/_3sdp"
             android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:background="@color/light_black"
+            android:scaleType="fitCenter"
             android:src="@drawable/sendbutton"></ImageButton>
 
     </RelativeLayout>

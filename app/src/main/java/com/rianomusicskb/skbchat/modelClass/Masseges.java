@@ -5,7 +5,6 @@ public class Masseges {
     String senderId;
     long timestamp;
 
-
     public Masseges() {
     }
 

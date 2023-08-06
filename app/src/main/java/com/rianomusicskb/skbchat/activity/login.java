@@ -52,7 +52,7 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        progressDialog=new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("ruk ja bhaii");
         progressDialog.setCancelable(false);
         edtemail = findViewById(R.id.edtemail);
@@ -60,7 +60,7 @@ public class login extends AppCompatActivity {
         edtpassword = findViewById(R.id.edtpasswordlogin);
         loginbutton = findViewById(R.id.loginbtn);
         txtregiternow = findViewById(R.id.txtregisternow);
-        backbtn_login=findViewById(R.id.backbtn_login);
+        backbtn_login = findViewById(R.id.backbtn_login);
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
@@ -83,7 +83,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(login.this,lr.class);
+                Intent intent = new Intent(login.this, lr.class);
                 startActivity(intent);
                 finish();
             }
@@ -327,12 +327,6 @@ public class login extends AppCompatActivity {
                         inputtxt.setText(data + "-");
                         outputedt.setText(finalresult + "");
                         count = 0;
-                        //                    inputtxt.setText(outputedt.getText());
-                        //                    outputedt.setText(outputedt.getText() + " * ");
-                        //                    mValueOne = Float.parseFloat(outputedt.getText() + "");
-                        //                    mSubtract = true;
-                        //                    outputedt.setText(null);
-                        //                    count=0;
                     }
                 }
             });
@@ -349,11 +343,6 @@ public class login extends AppCompatActivity {
                         inputtxt.setText(data + "×");
                         outputedt.setText(finalresult + "");
                         count = 0;
-                        //                inputtxt.setText(outputedt.getText());
-                        //                mValueOne = Float.parseFloat(outputedt.getText() + "");
-                        //                crunchifyMultiplication = true;
-                        //                outputedt.setText(null);
-                        //                count = 0;
                     }
                 }
             });
@@ -477,46 +466,6 @@ public class login extends AppCompatActivity {
                         count = count + 1;
                     }
 
-
-                    //                if(count==0){
-                    //                    outputedt.setText(" ");
-                    //                }else if(count==4) {
-                    //                    mValueOne = Float.parseFloat(outputedt.getText() + "");
-                    //                    if (var == mValueOne) {
-                    //                        startActivity(new Intent(calci_Activity.this, lr.class));
-                    //                        finish();
-                    //                    }
-                    //                }else{
-                    //                        mValueTwo = Float.parseFloat(outputedt.getText() + "");
-                    //                        if (crunchifyAddition == true) {
-                    //                            mValueOne=mValueOne + mValueTwo;
-                    //                            outputedt.setText(mValueTwo+"");
-                    //                            inputtxt.setText(mValueOne+ "");
-                    //                            crunchifyAddition = false;
-                    //                        }
-                    //                        if (mSubtract == true) {
-                    //                            mValueOne=mValueOne - mValueTwo;
-                    //                            inputtxt.setText(mValueOne+ "");
-                    //                            outputedt.setText(mValueTwo+ "");
-                    //                            mSubtract = true;
-                    //                            inputtxt.setText(null);
-                    //                        }
-                    //                        if (crunchifyMultiplication == true) {
-                    //                            mValueOne=mValueOne * mValueTwo;
-                    //                            inputtxt.setText(mValueOne+ "");
-                    //                            outputedt.setText( mValueTwo+ "");
-                    //                            crunchifyMultiplication = true;
-                    //                            inputtxt.setText(null);
-                    //                        }
-                    //                        if (crunchifyDivision == true) {
-                    //                            mValueOne=mValueOne/mValueTwo;
-                    //                            inputtxt.setText(mValueOne+ "");
-                    //                            outputedt.setText(mValueTwo + "");
-                    //                            crunchifyDivision = true;
-                    //                            inputtxt.setText(null);
-                    //                        }
-                    //                    inputtxt.setText(null);
-                    // }
                 }
             });
 
