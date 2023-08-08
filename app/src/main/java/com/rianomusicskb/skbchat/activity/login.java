@@ -198,8 +198,8 @@ public class login extends AppCompatActivity {
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    inputtxt.setText(data + "1");
                     data = inputtxt.getText().toString();
+                    inputtxt.setText(data + "1");
                     count = count + 1;
                 }
             });
