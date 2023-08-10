@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(MainActivity.this, login.calci_Activity.class);
+                Intent i = new Intent(MainActivity.this, passcode_activity.class);
                 startActivity(i);
                 finish();
             }
