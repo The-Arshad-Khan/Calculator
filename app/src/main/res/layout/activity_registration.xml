@@ -119,7 +119,8 @@
         android:layout_height="64dp"
         android:layout_marginTop="@dimen/_20sdp"
         android:backgroundTint="@color/black"
-        android:text="@string/register"></Button>
+        android:text="@string/register"
+        android:textColor="@color/white"></Button>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
