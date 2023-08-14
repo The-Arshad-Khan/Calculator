@@ -1,6 +1,7 @@
 package com.rianomusicskb.skbchat.modelClass;
 
 public class Masseges {
+    String image_url;
     String msg;
     String senderId;
     long timestamp;
@@ -8,13 +9,21 @@ public class Masseges {
     public Masseges() {
     }
 
-    public Masseges(String msg, String senderId, long timestamp) {
+    public Masseges(String image_url ,String msg, String senderId, long timestamp) {
+        this.image_url=image_url;
         this.msg = msg;
         this.senderId = senderId;
         this.timestamp = timestamp;
     }
 
 
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
 
     public String getMsg() {
         return msg;

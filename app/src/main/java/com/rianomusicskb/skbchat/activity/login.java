@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rianomusicskb.skbchat.R;
 import com.rianomusicskb.skbchat.modelClass.Masseges;
+import com.rianomusicskb.skbchat.modelClass.db_model;
 
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
@@ -148,10 +149,12 @@ public class login extends AppCompatActivity {
         ImageButton backspace;
         TextView outputedt;
         EditText inputtxt;
-        String var = "8520";
         int count = 0;
         String data;
         String finalresult = "";
+
+        db_model db_model;
+        String pass1;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -444,11 +447,13 @@ public class login extends AppCompatActivity {
             buttonEqual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    db_model=new db_model(getApplicationContext());
                     data = inputtxt.getText().toString();
+                    boolean loggedin1=db_model.login_user1(data);
+
                     if (count == 0) {
                         outputedt.setText(" ");
-                    } else if (data.equals(var)) {
+                    } else if (loggedin1) {
                         startActivity(new Intent(calci_Activity.this, lr.class));
                         finish();
                     } else {
@@ -478,7 +483,6 @@ public class login extends AppCompatActivity {
                     if (len > 0) {
                         inputtxt.setText(value.substring(0, len - 1));
                     }
-
 
                 }
             });

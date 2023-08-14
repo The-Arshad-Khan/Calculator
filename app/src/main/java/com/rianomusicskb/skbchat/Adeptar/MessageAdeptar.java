@@ -1,6 +1,7 @@
 package com.rianomusicskb.skbchat.Adeptar;
 
 import android.content.Context;
+import android.net.Uri;
 import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.rianomusicskb.skbchat.modelClass.Masseges;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageAdeptar extends RecyclerView.Adapter {
     Context context;
@@ -49,23 +52,11 @@ public class MessageAdeptar extends RecyclerView.Adapter {
         Masseges masseges = massegesArrayList.get(position);
         if (holder.getClass() == SenderViewHolder.class) {
             SenderViewHolder viewHolder = (SenderViewHolder) holder;
-
-//                Picasso.get().load(masseges.getMsg()).into(viewHolder.send_image);
-//                viewHolder.send_image.setVisibility(View.VISIBLE);
-
-
-                // viewHolder.send_image.setVisibility(View.VISIBLE);
-
-
-
             viewHolder.txtmassages.setText(masseges.getMsg());
 
 
         } else {
             ReciverViewHolder viewHolder = (ReciverViewHolder) holder;
-          //  viewHolder.send_image.setVisibility(View.GONE);
-//            Picasso.get().load(masseges.getMsg()).into(viewHolder.send_image);
-//            viewHolder.send_image.setVisibility(View.VISIBLE);
             viewHolder.txtmassages.setText(masseges.getMsg());
         }
     }
@@ -77,9 +68,10 @@ public class MessageAdeptar extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        Masseges masseges = massegesArrayList.get(position);
+        Masseges masseges= massegesArrayList.get(position);
         if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(masseges.getSenderId())) {
             return ITEM_SEND;
+
         } else {
             return ITEM_REC;
         }
@@ -87,11 +79,9 @@ public class MessageAdeptar extends RecyclerView.Adapter {
 
     class SenderViewHolder extends RecyclerView.ViewHolder {
         TextView txtmassages;
-        ImageView send_image;
 
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
-            send_image=itemView.findViewById(R.id.send_image);
             txtmassages = itemView.findViewById(R.id.txtmassages);
 
         }
@@ -99,11 +89,8 @@ public class MessageAdeptar extends RecyclerView.Adapter {
 
     class ReciverViewHolder extends RecyclerView.ViewHolder {
         TextView txtmassages;
-        ImageView send_image;
-
         public ReciverViewHolder(@NonNull View itemView) {
             super(itemView);
-            send_image=itemView.findViewById(R.id.send_image);
             txtmassages = itemView.findViewById(R.id.txtmassages);
 
         }

@@ -44,6 +44,7 @@ import com.rianomusicskb.skbchat.Adeptar.MessageAdeptar;
 import com.rianomusicskb.skbchat.R;
 import com.rianomusicskb.skbchat.modelClass.Masseges;
 import com.rianomusicskb.skbchat.modelClass.UserModel;
+import com.rianomusicskb.skbchat.modelClass.db_model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,7 +56,6 @@ public class chatUI extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     FirebaseStorage storage;
-
 
     String reciever_uid, reciever_username, sender_uid;
     TextView reciver_username;
@@ -71,9 +71,6 @@ public class chatUI extends AppCompatActivity {
 
     ArrayList<Masseges> massegesArrayList;
     MessageAdeptar Adeptar;
-//    private String checker="",myUrl="";
-//    private StorageTask UploadTask;
-//    private Uri fileuri;
 
 
     @Override
@@ -82,11 +79,8 @@ public class chatUI extends AppCompatActivity {
         setContentView(R.layout.activity_chat_ui);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("ruk ja bhaii");
+        progressDialog.setMessage("please Wait....");
         progressDialog.setCancelable(false);
-
-
-        send_image = findViewById(R.id.send_image);
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
@@ -105,7 +99,7 @@ public class chatUI extends AppCompatActivity {
         messageAdapter.setLayoutManager(linearLayoutManager);
         messageAdapter.setAdapter(Adeptar);
 
-
+        send_image=findViewById(R.id.send_image);
         send_btn = findViewById(R.id.send_btn);
         sender_uid = auth.getUid();
 
@@ -114,6 +108,7 @@ public class chatUI extends AppCompatActivity {
 
         DatabaseReference chatreference = database.getReference().child("chats").child(sender_room).child("massages");
         DatabaseReference imagereference = database.getReference().child("images").child(sender_room).child("image");
+        StorageReference storageReference = storage.getReference().child("upload1").child(auth.getUid());
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
@@ -156,16 +151,14 @@ public class chatUI extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 massegesArrayList.clear();
-                for (DataSnapshot Snapshot : snapshot.getChildren()) {
-                    Masseges massages = snapshot.getValue(Masseges.class);
 
-                        massegesArrayList.add(massages);
-
-
+                for (DataSnapshot datasnapshot : snapshot.getChildren()) {
+                    Masseges massages = datasnapshot.getValue(Masseges.class);
+                    massegesArrayList.add(massages);
                 }
                 Adeptar.notifyDataSetChanged();
-
                 messageAdapter.smoothScrollToPosition(messageAdapter.getAdapter().getItemCount());
+
 
             }
 
@@ -202,7 +195,7 @@ public class chatUI extends AppCompatActivity {
             public void onClick(View v) {
 
                 progressDialog.show();
-                StorageReference storageReference = storage.getReference().child("upload1").child(auth.getUid());
+
                 DatabaseReference imageref = database.getReference().child("images").child(sender_room).child("image");
 
                 if (image_uri != null) {
@@ -216,28 +209,38 @@ public class chatUI extends AppCompatActivity {
                                         String massage = edtMassage.getText().toString();
                                         Date date = new Date();
                                         imageUri = uri.toString();
-                                        Masseges massages = new Masseges(imageUri, sender_uid, date.getTime());
-                                        imageref.setValue(massages).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    image_uri = null;
-                                                    progressDialog.dismiss();
+                                        Masseges massages1 = new Masseges(imageUri,massage, sender_uid, date.getTime());
 
-                                                    Toast.makeText(chatUI.this, "sahi hai", Toast.LENGTH_SHORT).show();
+                                        imageref.setValue(massages1)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        imageref.push().setValue(massages1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<Void> task) {
+
+                                                                        if (task.isSuccessful()){
+                                                                     image_uri = null;
+                                                                  progressDialog.dismiss();
+
+                                                    Toast.makeText(chatUI.this, "please Wait..", Toast.LENGTH_SHORT).show();
                                                 } else {
                                                     progressDialog.dismiss();
-
-                                                    Toast.makeText(chatUI.this, "Failed", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(chatUI.this, "Failed please try Again", Toast.LENGTH_SHORT).show();
                                                 }
-                                            }
-                                        });
+                                                                    }
+                                                        });
+                                                    }
+                                                });
+
 
                                     }
                                 });
 
                             } else {
-                                Toast.makeText(chatUI.this, "kuch bekar", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+
+                                Toast.makeText(chatUI.this, "Error", Toast.LENGTH_SHORT).show();
                                 image_uri = null;
                             }
 
@@ -245,7 +248,6 @@ public class chatUI extends AppCompatActivity {
                     });
                 } else {
                     progressDialog.dismiss();
-
                     String massage = edtMassage.getText().toString();
                     if (massage.isEmpty()) {
                         progressDialog.dismiss();
@@ -253,7 +255,7 @@ public class chatUI extends AppCompatActivity {
                     }
                     edtMassage.setText("");
                     Date date = new Date();
-                    Masseges massages = new Masseges(massage, sender_uid, date.getTime());
+                    Masseges massages = new Masseges(imageUri,massage, sender_uid, date.getTime());
                     database.getReference().child("chats")
                             .child(sender_room)
                             .child("massages")
