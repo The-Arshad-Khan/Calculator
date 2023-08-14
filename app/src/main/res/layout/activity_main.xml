@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity"
-    android:background="@drawable/gredients">
+    android:background="@color/dark">
 
 
     <LinearLayout
@@ -14,11 +14,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
+        <ImageView
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:src="@drawable/mainlogo"></ImageView>
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scientific Calculator"
+        android:text="Calculator"
         android:textColor="@color/white"
         android:textSize="@dimen/_17ssp"
         android:fontFamily="sans-serif"/>

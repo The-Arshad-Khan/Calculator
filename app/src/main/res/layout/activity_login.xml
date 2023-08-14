@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.login"
-    android:background="@color/orange"
+    android:background="@color/light"
     android:orientation="vertical"
     android:padding="@dimen/_22sdp">
 
@@ -18,7 +18,7 @@
             android:id="@+id/backbtn_login"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
-            android:background="@color/orange"
+            android:background="@color/light"
             android:contentDescription="back button"
             android:src="@drawable/baseline_arrow_back_ios_24"></ImageButton>
     </LinearLayout>
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="Welcome Back!"
-            android:textColor="@color/white"
+            android:textColor="@color/dark"
             android:textSize="@dimen/_35sdp"
             android:textStyle="bold"
             android:typeface="sans"></TextView>
@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/dark"
         android:text="Login"
         android:textColor="@color/white">
 

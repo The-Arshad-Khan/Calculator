@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_170sdp"
     android:layout_margin="@dimen/_29sdp"
-    android:background="@drawable/shap_dialog"
+    android:background="@drawable/glass"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_gravity="center">
@@ -22,9 +22,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/Grey"
+        android:textColor="@color/black"
         android:textSize="@dimen/_15sdp"
-        android:text="sacchi me logout karega">
+        android:text="Do you want to Logout?"
+        android:textStyle="bold">
 
     </TextView>
 
@@ -37,8 +38,8 @@
         <TextView
             android:id="@+id/no"
             android:background="@drawable/yes_logout_shape"
-            android:backgroundTint="@color/dark_gray"
-            android:textColor="@color/Grey"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_25sdp"
@@ -50,7 +51,7 @@
         <TextView
             android:background="@drawable/yes_logout_shape"
             android:id="@+id/yes"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/dark"
             android:gravity="center"
             android:layout_weight="1"
             android:textColor="@color/Grey"

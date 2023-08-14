@@ -21,7 +21,7 @@
         android:background="@drawable/recivershap_item"
         android:padding="@dimen/_7sdp"
         android:text="@string/enter_username"
-        android:textColor="@color/black"></TextView>
+        android:textColor="@color/dark"></TextView>
 
 
 </RelativeLayout>

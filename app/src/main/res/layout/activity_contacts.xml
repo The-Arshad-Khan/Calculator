@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.contacts"
-    android:background="@color/orange"
+    android:background="@color/dark"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:background="@color/orange"
+        android:background="@color/dark"
         android:paddingBottom="@dimen/_15sdp"
         android:paddingTop="@dimen/_15sdp"
         android:paddingLeft="@dimen/_15sdp"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="Username"
             android:textSize="@dimen/_20sdp"
-            android:textColor="@color/Grey"
+            android:textColor="@color/white"
             android:layout_marginLeft="@dimen/_5sdp"/>
         <ImageView
             android:id="@+id/img_logout"
@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:hint="Search..."
         android:color="@color/Grey"
+        android:textColorHint="@color/light"
         android:iconifiedByDefault="false"
         ></EditText></LinearLayout>
 <LinearLayout

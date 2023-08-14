@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_170sdp"
+    android:layout_margin="@dimen/_29sdp"
+    android:background="@color/light"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_weight="1"
+    android:background="@color/light"
+  >
+    <EditText
+        android:inputType="number"
+        android:id="@+id/pass"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/_15sdp"
+        android:hint="Enter 6 digit password"
+        android:textColorHint="@color/dark"
+        android:layout_marginLeft="@dimen/_20sdp">
+    </EditText>
+
+    <ImageView
+
+       android:layout_marginRight="@dimen/_10ssp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:onClick="pass_backbtn"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cancel_btn"
+        android:background="@color/light"
+        />
+</LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:background="@drawable/yes_logout_shape"
+            android:onClick="register"
+            android:backgroundTint="@color/dark"
+            android:gravity="center"
+            android:textColor="@color/light"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Set Password"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_11ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            ></androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+</LinearLayout>

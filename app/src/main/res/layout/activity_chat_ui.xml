@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
+    android:background="@color/dark"
     android:orientation="vertical"
     tools:context=".activity.chatUI">
 
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@color/orange"
+        android:background="@color/dark"
         android:padding="@dimen/_10sdp">
 
         <ImageView
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/baseline_arrow_back_ios_24"></ImageView>
+            android:src="@drawable/white_arrrowback"></ImageView>
 
         <TextView
             android:id="@+id/reciver_username"
@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/light_black"
+        android:background="@color/light"
         android:paddingTop="@dimen/_10sdp"
         android:paddingBottom="@dimen/_10sdp">
 
@@ -90,8 +90,8 @@
             android:background="@drawable/attach_mssg"
             android:hint="write your message here..."
             android:paddingLeft="@dimen/_25sdp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="@dimen/_10sdp"></EditText>
 
         <!--        <de.hdodenhof.circleimageview.CircleImageView-->
@@ -115,9 +115,9 @@
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_3sdp"
             android:layout_toLeftOf="@id/send_btn"
-            android:background="@color/light_black"
+            android:background="@color/light"
             android:scaleType="fitCenter"
-            android:src="@drawable/camera_icon"></ImageButton>
+            android:src="@drawable/baseline_photo_camera_24"></ImageButton>
 
         <ImageButton
             android:id="@+id/send_btn"
@@ -127,9 +127,9 @@
             android:layout_marginTop="@dimen/_3sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_3sdp"
-            android:background="@color/light_black"
+            android:background="@color/light"
             android:scaleType="fitCenter"
-            android:src="@drawable/sendbutton"></ImageButton>
+            android:src="@drawable/baseline_send_24"></ImageButton>
 
     </RelativeLayout>
 

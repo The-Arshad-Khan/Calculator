@@ -4,12 +4,8 @@
     android:radius="@dimen/_25sdp">
 </corners>
     <gradient
-        android:startColor="@color/black"
-        android:endColor="@color/dark_gray"
-        android:angle="90"></gradient>
-    <stroke
-        android:color="@color/dark_gray"
-        android:width="@dimen/_1sdp">
+        android:startColor="@color/dark"
+        android:endColor="@color/dark"
+        android:angle="-90"></gradient>
 
-    </stroke>
 </shape>

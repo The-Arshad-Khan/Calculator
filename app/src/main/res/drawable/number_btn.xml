@@ -3,22 +3,19 @@
 
     <item>
         <shape
-            android:shape="rectangle">
+            android:shape="rectangle"
+            >
             <gradient
-                android:startColor="@color/black"
-                android:endColor="@color/dark_gray"
+                android:startColor="@color/light_white"
+                android:endColor="@color/light_white"
                 android:angle="90">
 
             </gradient>
+
             <corners
                 android:radius="@dimen/_13sdp">
 
             </corners>
-            <stroke
-                android:color="@color/dark_gray"
-                android:width="@dimen/_1sdp">
-            </stroke>
         </shape>
-
     </item>
 </selector>
